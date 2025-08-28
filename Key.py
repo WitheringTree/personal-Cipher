@@ -7,11 +7,13 @@ class First:
     individual_Characters=[]
     characters_Length=0
     counter_Up=0
+    electric_Boogalo=0
     test=["The", "quick", "brown", "fox", "jumps", "over", "the", "lazy", "dog"]
     key=""
     question=""
     question2=""
     haver=""
+    
     
     question=input("Do you want to edit a previous key? Y/N ")
     if "y" in question:
@@ -34,11 +36,13 @@ class First:
         wheel.append(characters)
         for char in characters:
             individual_Characters.append(char)
-        key=key+f'{characters_Length}{characters}'
+        key=key+f'{len(str(characters_Length))}{characters_Length}{characters}'
 
-    key=f'{len(wheel)}'+key
-        
-    #this is to give the key maker something usable, so they don't have to keep inputing
+    electric_Boogalo=len(wheel)
+    
+    key=f'{len(str(electric_Boogalo))}{electric_Boogalo}'+key
+    
+    #this is to give the key maker something usable, so they don't have to keep inputing for testing
     print(key)
 
 
