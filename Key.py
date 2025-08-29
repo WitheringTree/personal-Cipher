@@ -38,6 +38,8 @@ class First:
             individual_Characters.append(char)
         key=key+f'{len(str(characters_Length))}{characters_Length}{characters}'
 
+
+
     electric_Boogalo=len(wheel)
     
     key=f'{len(str(electric_Boogalo))}{electric_Boogalo}'+key

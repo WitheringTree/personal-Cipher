@@ -4,9 +4,9 @@ class First:
     comprehensive={}
     first=[]
     step=[]
-    layer1=[]
-    layer2=[]
-    layer3=[]
+    length_Of_Positions=[]
+    positions=[]
+    current_Number_Needed=[]
     collective_Characters=[]
     lock=""
     mess=""
@@ -16,7 +16,10 @@ class First:
     frustration=""
     folder=0
     count_Down=0
+    count_Up=0
     decision=0
+    b=0
+    switch_State=True
     
     
 
@@ -39,10 +42,10 @@ class First:
         wheel=""
         for x in range(folder):
             safe=safe+step.pop(0)
-        layer1.append(safe)
+        length_Of_Positions.append(safe)
         for x in range(int(safe)):
             wheel=wheel+step.pop(0)
-        layer2.append(wheel)
+        positions.append(wheel)
         for char in wheel:
             collective_Characters.append(char)
         count_Down=count_Down-1
@@ -53,34 +56,45 @@ class First:
 
     for char in mess:
             first.append(char)
-    if first != collective_Characters:
+    """if first != collective_Characters:
          #Dud classification
-        print("7")
-
+        print("7")"""
+    
     for char in mess:
         frustration=first.pop(0)
-        layer3.clear()
+        current_Number_Needed.clear()
         for i in range(len(collective_Characters)):
             if collective_Characters[i] == frustration:
                 #refrencing the entire collective_Characters in order to find its position
-                layer3.append(i)
-                print(layer3)
-        if len(layer3)>1:
+                current_Number_Needed.append(i)
+                print("ih")
+        if len(current_Number_Needed)>1:
             #this is for deciding which position is to be chosen if there are multiple
-            decision=random.randint(1,len(layer3))
-            a=layer3.pop(decision-1)
-            layer3.clear()
-            layer3.append(a)
-            print(layer3)
-            print(decision)
+            decision=random.randint(1,len(current_Number_Needed))
+            a=current_Number_Needed.pop(decision-1)
+            current_Number_Needed.clear()
+            current_Number_Needed.append(a)
+            print("hi")
+        while switch_State==True:
+            print(current_Number_Needed)
+            print(length_Of_Positions)
+            b=int(current_Number_Needed[count_Up])-int(length_Of_Positions[count_Up])
+            if b>0:
+                current_Number_Needed=b
+                count_Up=count_Up+1
+            else:
+                 switch_State==False
+            print(b)
+            print(count_Up)
+            print(current_Number_Needed)
+    print("paint")
+    time.sleep(100)
 
 
 
-
-
-    print(frustration)
-    print(layer1)
-
+    print(length_Of_Positions)
+    print(positions)
+    print(current_Number_Needed)
 
     # 1
     # 2
@@ -125,7 +139,7 @@ class First:
 
 
 """
-    for i, x in enumerate(layer2):
+    for i, x in enumerate(positions):
          print(f"Index {i}: {x}")
 """
 
