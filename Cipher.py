@@ -8,6 +8,8 @@ class First:
     positions=[]
     current_Number_Needed=[]
     collective_Characters=[]
+    beeg_Number=[]
+    lil_Number=[]
     lock=""
     mess=""
     total_Positions=""
@@ -18,14 +20,16 @@ class First:
     count_Down=0
     count_Up=0
     decision=0
-    b=0
+    not_Temporary=0
+    barracuda=0
     switch_State=True
     
-    
+    def peeking_Curtain(sugma):
+         print("Peeking: ", sugma)
 
     #lock=input("input KEY: ")
 
-    #This is a test string, should be removed after testing. Or rendered inert
+    #This is not_Temporary test string, should be removed after testing. Or rendered inert
     lock="1415plfao17vansepm17eifnpae14anva"
 
     step=list(lock)
@@ -62,39 +66,52 @@ class First:
     
     for char in mess:
         frustration=first.pop(0)
+        print("Start- ", frustration)
         current_Number_Needed.clear()
         for i in range(len(collective_Characters)):
             if collective_Characters[i] == frustration:
                 #refrencing the entire collective_Characters in order to find its position
                 current_Number_Needed.append(i)
-                print("ih")
+                peeking_Curtain(current_Number_Needed)
         if len(current_Number_Needed)>1:
             #this is for deciding which position is to be chosen if there are multiple
             decision=random.randint(1,len(current_Number_Needed))
-            a=current_Number_Needed.pop(decision-1)
-            current_Number_Needed.clear()
-            current_Number_Needed.append(a)
-            print("hi")
+            peeking_Curtain(decision)
+            not_Temporary=current_Number_Needed.pop(decision-1)
+        else:
+            not_Temporary=current_Number_Needed.pop(0)
+            print("odd? ", not_Temporary)
+        print("Round one: ", not_Temporary)
+        current_Number_Needed.clear()
+        count_Up=0
         while switch_State==True:
-            print(current_Number_Needed)
-            print(length_Of_Positions)
-            b=int(current_Number_Needed[count_Up])-int(length_Of_Positions[count_Up])
-            if b>0:
-                current_Number_Needed=b
+            barracuda=not_Temporary
+            print("Next up: ", not_Temporary)
+            not_Temporary=not_Temporary-int(length_Of_Positions[count_Up])
+            if not_Temporary>0:
                 count_Up=count_Up+1
+            elif count_Up%2:
+                #Odd
+                print("stop it")
+                beeg_Number.append(count_Up)
+                lil_Number.append(barracuda)
+                switch_State=False
             else:
-                 switch_State==False
-            print(b)
-            print(count_Up)
-            print(current_Number_Needed)
-    print("paint")
-    time.sleep(100)
+                #Even
+                beeg_Number.append(count_Up)
+                lil_Number.append(barracuda+1)
+                switch_State=False
+        print("Second up: ", not_Temporary)
+        switch_State=True
 
 
 
-    print(length_Of_Positions)
-    print(positions)
-    print(current_Number_Needed)
+    print("FNL: ", length_Of_Positions)
+    print("FNL: ", positions)
+    print("FNL: ", current_Number_Needed)
+    print("FNL: ", beeg_Number)
+    print("FNL: ", lil_Number)
+    print("FNL: ", comprehensive) #this is the final result
 
     # 1
     # 2
@@ -102,7 +119,22 @@ class First:
 
 
 
-    time.sleep(100)
+    time.sleep(1000)
+
+'''
+    while switch_State==True:
+            barracuda=not_Temporary
+            print("Next up: ", not_Temporary)
+            not_Temporary=not_Temporary-int(length_Of_Positions[count_Up])
+            if not_Temporary>0:
+                count_Up=count_Up+1
+            else:
+                beeg_Number.append(count_Up)
+                lil_Number.append(barracuda)
+                switch_State=False
+        print("Second up: ", not_Temporary)
+        switch_State=True
+'''
 
 
 '''
@@ -118,7 +150,7 @@ class First:
             #decode
             answer1=2
         else:
-            print("Not a valid answer")    
+            print("Not not_Temporary valid answer")    
 
             
 
